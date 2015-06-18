@@ -1,0 +1,164 @@
+﻿
+
+@using TermProject.Models
+
+
+
+
+
+@{
+    ViewBag.Title = "Flavours";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+ 
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Froosrt Sweets-Flavours</title>
+    <script src="bootstrap.js"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item"><img id="logo" src="~/Content/themes/base/images/logo.gif" width="265"  alt=""></a>
+
+            </div> <!--list group div end-->
+
+        </div><!--list col-mod-3 end-->
+        <div class="col-md-6">
+            <!-- start of class content -->
+            <div class="content">
+                <!-- start inner page content box background -->
+                <div class="header">
+                    <div class="footer">
+                        <div class="col-md-9">
+                            <h1 style="color:purple">Choose Your Flavors</h1>
+                            <div class="section"> <!--table div-->
+ @foreach (var u in ViewBag.iceCreams )
+{
+    <div class="col-lg-6">
+        <div class="person media">
+            <h4 class="person-name" style="color:black">@u.name </h4>
+           
+           
+
+                <div>
+                    <img src=@u.image class="avatar size-default img-circle" alt="image missing" height="150" width="200">
+
+                    </div>
+            
+            <div class="media-body">
+                <h4 class="person-name" style="color:black">
+                    @u.brand
+                </h4>
+
+
+                <p class="person-brief muted" style="color:black">
+                    @u.Flavour
+                </p>
+                <p style="color:black">@u.price /- Rs</p>
+                <p style="color:black">@u.size ml</p>
+                
+
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+
+
+
+                            </div>
+                            <div class="section">
+
+
+                                <div class="pricing">
+                                   
+                                    <h2 style="color:purple">Payment</h2>
+                                    
+                                    <span style="color:black">all payment will be cash on delivery</span><br />
+                                    <span style="color:black">Order wil be delivered within an hour  </span><br />
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="col-md-3" align="right" style="padding:20px">
+                             @using (Html.BeginForm("orderPlacement", "Order", FormMethod.Post, new { style = "align:center" }))
+                             { 
+                                  <h2 style="color:purple">Delivery Information</h2>
+
+                                 <input type="text" name="firstname" value="" required="required" style="color:black"  placeholder="First Name" />
+                                 <br/>
+                                                            <br/>
+                                 <input type="text" name="lastname" value="" required="required" style="color:black"  placeholder="Last Name"/>
+                                  <br/>
+                                                            <br/>
+                                  <input type="tel" name="ocontactnumber1" value="" required="required" style="color:black" placeholder="Contact # 1"/>
+                                 <br/>
+                                                            <br/>
+                                  <input type="tel" name="ocontactnumber2" value="" required="required" style="color:black" placeholder="Conatct #2" />
+                                 <br/>
+                                                            <br/>
+                                  <input type="text" name="oaddress" value="" required="required" style="color:black;height:60px" placeholder="Address" />
+                                 <br/>
+                                                            <br/>
+                                 <input type="text" name="description" value="" required="required" style="color:black;height:60px" placeholder="Place your order here" />
+                                 <br/>
+                          
+                                 /*  @Html.TextBoxFor(@model => @model.lastname, new { style = "color:black" , type = "text", required = "required" , placeholder=@Session["lastname"]})
+                                  <br/>
+                                  @Html.TextBoxFor(@model => @model.ocontactnumber1, new { style = "color:black", type = "tel", required = "required" ,placeholder=@Session["contactnumber1"]})
+                                  <br/>
+                                  @Html.TextBoxFor(@model => @model.ocontactnumber2, new { style = "color:black", type = "tel", required = "required" ,placeholder= @Session["contactnumber2"]})
+                                  <br/>
+                                  @Html.TextBoxFor(@model => @model.oaddress ,new { style="color:black",  type = "text", required = "required" , placeholder=@Session["address"]} )
+                                  <br/>
+                                  @Html.TextBoxFor(@model => @model.description ,new { style="color:black" ,  type = "text", required = "required" , placeholder="place your order details"} )  */
+                                <input type="submit" value="Order Now" class="btn btn-block btn-success" onclick="OrderNow()" >
+                             }
+                             } 
+                            
+
+                          
+                        </div> -->
+
+                    </div>
+                    <!-- end of footer-->
+                </div>
+                <!-- end inner page content box background -->
+            </div>
+            <!-- end of class content -->
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+<script>
+    function orderNow() {
+        alert("order has placed. wait for an hour")
+
+    }
+</script>

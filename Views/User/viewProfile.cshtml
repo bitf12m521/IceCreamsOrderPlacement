@@ -1,0 +1,74 @@
+﻿@{
+   
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@using TermProject.Models
+ 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>viewProfile</title>
+    <script src="bootstrap.js"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item"><img id="logo" src="~/Content/themes/base/images/logo.gif" width="265" height="525" alt=""></a>
+
+            </div> <!--list group div end-->
+
+        </div><!--list col-mod-3 end-->
+        <div class="col-md-6">
+            <div class="slider">
+                <img src="~/Content/themes/base/images/fruit-toppings.gif" alt="Frosty Sweet" title="Frosty Sweet">
+             </div><!-- end slider-->
+        <form>   
+            <div class="col-lg-6">
+              
+                    <div class="person media" >
+                        <label style="color:black">First Name</label>
+                        <input type="text" name="firstname" value="@Model.firstname" style="color:black" />
+                        <br/>
+                        <label style="color:black">Last Name</label>
+                        <input type="text" name="lastname" value="@Model.lastname" style="color:black" />
+                        <br/>
+                        <label style="color:black">Contact #1</label>
+                        <input type="tel" name="contactnumber1" value="@Model.contactnumber1" style="color:black" />
+                        <br/>  
+                        <label style="color:black">Contact #2</label>
+                         <input type="tel" name="contactnumber2" value="@Model.contactnumber2" style="color:black" />
+                         <br/>
+                        <label style="color: black">Address</label>
+                        <input type="text" name="address" value="@Model.address" style="color: black; margin-left: 15px"  /> 
+                        <br />   
+                        
+                        <label style="color: black"> Email</label>
+                        <input type="text" name="address" value="@Model.email" style="color: black; margin-left: 15px" />
+                        <br />   
+                         
+                    </div>
+               
+            </div>
+
+            <div class="col-log-6" style="margin-top:50px;margin-left:80px">
+
+                <img  id="profile-image" src="@Session["image"]" alt="Profile Image" class="avatar size-default img-circle" height="350" width="250" />
+            </div>
+            <div style="float: right; margin-top: 20px">
+                <a href="/User/updateProfile/?id=@Model.UId" class="btn btn-primary " role="button">Edit</a>
+            </div>
+           
+      </form>
+
+
+       </div>
+     </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿
+@using TermProject.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Frosty Sweets</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Deserts", "Deserts", "User")</li>
+                    <li>@Html.ActionLink("Flavours", "Flavours", "User")</li>
+                    
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="color:blueviolet">Welcome @Session["firstname"]</li>
+                    <li><img id="profile-image" src=@Session["image"] alt="Profile Image" class="avatar size-default img-circle" height="60" width="60" /><li/>
+                   
+                    <li>@Html.ActionLink("View Profile", "viewProfile", "User")</li>
+
+                    <li>@Html.ActionLink("Logout", "Logout", "User")</li>
+
+                  
+                </ul>
+            </div>
+           
+                
+            <div class="col-lg-3">
+                <div class="col-lg-12">
+                <div class="nav navbar-nav navbar-right">
+                    <div class="input-group stylish-input-group">
+                        <form role="search"  action="/User/getByBrand" method="post">
+                            <div class="form-inline" >
+                                <input type="text" name="brand"  id="brand" class="form-control" placeholder="Search">
+
+                            </div>
+                            <button class="btn btn-search" id="search"><i class="glyphicon glyphicon-search"></i></button>                             
+   
+
+                           
+
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-footer">
+
+
+
+                <a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+            </div>
+            <div>
+
+                <span>&copy;2011 <a href="#">Frost Sweets Gourmet Ice Cream All Rights Reserved</a> </span>
+                <!--add links-->
+            </div>
+        </div>
+    </nav>
+
+</body>
+</html>
+<script>
+
+   
+    </script>

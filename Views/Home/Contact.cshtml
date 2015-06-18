@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Contact";
+         Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TermProject.Models.Message
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Froosrt Sweets-Contact</title>
+    <script src="bootstrap.js"></script>
+    <script src="bootstrap.js"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css">
+    
+</head>
+<body >
+   
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item"><img id="logo" src="~/Content/themes/base/images/logo.gif" width="265" height="525" alt=""></a>
+
+            </div> <!--list group div end-->
+        </div>
+            <div class="col-md-6">
+
+                <div class="content">
+                    <!-- start of class content -->
+                    <!-- start inner page content box background -->
+                    <div class="header">
+                        <div class="footer">
+                            <div class="body">
+                                <!-- start of body -->
+                                <h3 style="color:black">Contact Us</h3>
+                                <ul class="connect">
+                                    <li>
+                                        <h4 style="color:black" class="phone">Call Us</h4>
+                                        <span style="color:black">755-811-4255</span><span style="color:black">12:00 pm - 12:00 am </span>
+                                    </li>
+                                    <li>
+                                        <h4 style="color:black" class="email">Email Us</h4>
+                                        <span><a href="mailto:info@frostysweets.com">info@frostysweets.com</a></span>
+                                    </li>
+                                    <li>
+                                        <h4 style="color:black" class="home">Visit Us</h4>
+                                        <span style="color:black">Check our location nearest to you on google map</span>
+                                    </li>
+
+                                </ul>
+                                <h3 style="color:black">
+                                    Send Us a Quick Message
+                                </h3>
+                            </div>
+                            <!-- end of body -->
+                        </div>
+                        @using (Html.BeginForm("quickMessage", "Message", FormMethod.Post, new { style = "align:center" }))
+                               {
+                              @Html.AntiForgeryToken()
+                             @Html.ValidationSummary(true)
+
+                            @Html.LabelFor(@model => model.name, new { style = "color:black" })
+                            @Html.TextBoxFor(@model => model.name, new { style = "color:black"})
+                            <br/>
+                             @Html.ValidationMessageFor(model => model.name)
+                            
+                            <br />
+                            @Html.LabelFor(@model => model.email, new { style = "color:black" })
+                            @Html.TextBoxFor(@model => model.email, new { style = "color:black"})
+                            <br/>
+                             @Html.ValidationMessageFor(model => model.email)
+                            <br />
+
+                            @Html.LabelFor(@model => model.note, new { style = "color:black" })
+                            @Html.TextBoxFor(@model => model.note, new { style = "color:black"})
+                            <br/>
+                             @Html.ValidationMessageFor(model => model.note)
+                            <br />
+
+                            <input type="submit" value="Send">
+
+
+
+
+                               }
+
+
+                    </div>
+                    <!-- end inner page content box background -->
+                </div>
+
+                <!-- end of class content -->
+            </div><!-- div col-md-6 end-->
+        </div><!-- div row end-->
+       
+
+
+  
+
+</body>
+</html>
+<script>
+   
+    </script>

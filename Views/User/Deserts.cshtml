@@ -1,0 +1,104 @@
+﻿
+
+@{
+   // ViewBag.Title = "Deserts";
+   Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+@using TermProject.Models
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Froosrt Sweets-Deserts</title>
+    <script src="bootstrap.js"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css">
+</head>
+<body>
+    
+
+    <div class=" row">
+
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item"><img id="logo" src="~/Content/themes/base/images/logo.gif" width="265" height="825" alt=""></a>
+
+            </div> <!--list group div end-->
+
+        </div><!--list col-mod-3 end-->
+        <div class="col-md-9>  <!-- col 6 start -->
+            
+            <div class="Section type-2">
+                <div class="container">
+                    <div>
+                        @foreach (Receipe r in Model)
+                        {
+                            <div class="col-lg-3">
+                                <div class="person media">
+                                    <h4 style="color:red">Name</h4>
+                                    <h3 class="person-name" style="color:black">@r.name </h3>
+                                    <div>
+                                        <img src="@r.image" class="avatar size-default img-circle" height="150" width="200">
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 style="color:black">Servings</h4>
+                                        <p class="person-name" style="color:black">
+                                            @r.servings
+                                        </p>
+
+                                        <h4 style="color:black">Prepration Time</h4>
+                                        <p class="person-brief muted" style="color:black">
+                                            @r.prep_time
+                                        </p>
+                                        <h4 style="color:black">Total Time</h4>
+                                        <p style="color:black">@r.total_time</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <h4 style="color:black">Ingredients</h4>
+                                @{
+                            String line = r.ingredients;
+                            string[] data = line.Split('&');
+                            <ul>
+                                @foreach (var x in data)
+                                {
+                                    <li style="color:black">@x</li>
+                                }
+                            </ul>
+                                }
+                            </div>
+                            <div class="col-lg-3">
+                                <h4 style="color:black">Directions</h4>
+                                @{
+                                String line2 = r.direction;
+                                string[] data2 = line2.Split('#');
+                                <ul>
+                                    @foreach (var y in data2)
+                                    {
+                                        <li style="color:black">@y</li>
+                                    }
+                                </ul>
+
+                               }
+                               
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+            </div><!-- col 9 end-->
+
+
+        </div> 
+        <div class="col-lg-4">
+        </div>
+   </div><!-- row div end-->
+
+</body>
+</html>
+

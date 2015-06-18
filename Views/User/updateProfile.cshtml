@@ -1,0 +1,103 @@
+﻿@{
+    
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@model TermProject.Models.User
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>updateProfile</title>
+    <script src="bootstrap.js"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css">
+</head>
+<body>
+   
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item"><img id="logo" src="~/Content/themes/base/images/logo.gif" width="265" height="525" alt=""></a>
+
+            </div> <!--list group div end-->
+
+        </div><!--list col-mod-3 end-->
+        <div class="col-md-6" style="align-content:center">
+
+
+
+            <div class="slider">
+                <img src="~/Content/themes/base/images/fruit-toppings.gif" alt="Frosty Sweet" title="Frosty Sweet">
+           </div><!-- end slider-->
+          @using (Html.BeginForm("updateInfo", "User", FormMethod.Post, new { enctype = "multipart/form-data" , align="center"}))
+          { 
+            <div class="col-lg-6">
+             @Html.HiddenFor(m => m.UId)
+           
+              
+            <label style="color:black">First Name</label>
+            @Html.TextBoxFor(m => m.firstname, new { style = "color:black" })
+             <br/>
+             <label style="color:black">Last Name</label>
+              @Html.TextBoxFor(m => m.lastname, new { style = "color:black"})
+               <br/>
+           
+             
+              
+              <label style="color:black">Contact #1</label>
+              @Html.TextBoxFor(m => m.contactnumber1, new { style = "color:black" })
+              <br/>
+              
+              <label style="color:black">Contact #2</label>
+              @Html.TextBoxFor(m => m.contactnumber2, new { style = "color:black" })
+              <br/>
+
+                <label style="color:black">Password</label>
+                @Html.TextBoxFor(m => m.password, new { style = "color:black" })
+                <br />
+              
+              
+                <label style="color: black">Address</label>
+                @Html.TextBoxFor(m => m.address, new { style = "color:black" })
+
+                <label style="color: black">Email</label>
+                @Html.TextBoxFor(m => m.email, new { style = "color:black" })
+
+
+              
+              <br/>
+              
+                <div style="float: right; margin-top: 20px">
+                    <input type="submit" value="Save" class="btn btn-primary" >
+                </div>
+                </div>
+              <div class="col-log-6" style="margin-top:50px;margin-left:80px">
+
+              <input type="file" style="color:black;float:right"  name="image">
+              </div>
+             
+          }
+               
+        </div>
+           
+
+
+
+      </div>
+          
+
+
+    
+
+</body>
+</html>
+
+<script>
+    
+</script>

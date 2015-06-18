@@ -1,0 +1,112 @@
+﻿@using TermProject.Models
+
+
+
+
+
+@{
+    ViewBag.Title = "Flavours";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+ 
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Froosrt Sweets-Flavours</title>
+    <script src="bootstrap.js"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item"><img id="logo" src="~/Content/themes/base/images/logo.gif" width="265" height="525" alt=""></a>
+
+            </div> <!--list group div end-->
+
+        </div><!--list col-mod-3 end-->
+        <div class="col-md-6">
+            <!-- start of class content -->
+            <div class="content">
+                <!-- start inner page content box background -->
+                <div class="header">
+                    <div class="footer">
+                    
+                            
+                            <div class="section">
+                               
+                                                  @foreach (var u in Model)
+                                                {
+                                                    <div class="col-lg-4">
+                                                        <div class="person media">
+                                                            <h4 class="person-name" style="color:black">@u.name </h4>
+                                                            @if (u.image == null)
+                                                            {
+                                                                <div class="person-avatar pull-left">
+                                                                    <img src=@u.image class="avatar size-default img-circle" height="150" width="200" alt="image missing">
+                                                                </div>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="person-avatar pull-left">
+                                                                    <img src=@u.image class="avatar size-default img-circle" height="150" width="300">
+                                                                    <img src=@u.image1 class="avatar size-default img-circle" height="150" width="300">
+                                                                </div>
+                                                            }
+                                                    <div class="media-body">
+                                                        <h4 class="person-name" style="color:black">
+                                                            @u.brand
+                                                        </h4>
+
+
+                                                        <p class="person-brief muted" style="color:black">
+                                                            @u.Flavour
+                                                        </p>
+                                                        <p style="color:black">@u.price /- Rs</p>
+                                                        <p style="color:black">@u.size ml</p>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                }
+                                               
+                                          
+
+
+                            </div>
+                          
+
+                        </div>
+                       
+
+                    </div>
+                    <!-- end of footer-->
+                </div>
+                <!-- end inner page content box background -->
+            </div>
+            <!-- end of class content -->
+
+
+        </div>
+   
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

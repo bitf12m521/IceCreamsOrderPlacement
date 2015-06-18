@@ -1,0 +1,197 @@
+﻿@model TermProject.Models.User
+
+
+
+@{
+    Layout = null;
+}
+
+
+<div id="checking">Checking...</div>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="bootstrap.js"></script>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css">
+    <title>Signup</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Frosty Sweets</a>
+            </div>
+        </div>
+        
+</nav>
+   
+
+   
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item"><img id="logo" src="~/Content/themes/base/images/logo.gif" width="265" height="625" alt=""></a>
+
+            </div> <!--list group div end-->
+
+        </div><!--list col-mod-3 end-->
+        <div class="col-md-6">
+            <!-- start of class content -->
+            <div class="content">
+                <!-- start inner page content box background -->
+                <div class="header">
+                    <div class="footer">
+                        <div class="body">
+                            <div class="news">
+                                <img src="~/Content/themes/base/images/welcome.jpg" height="200" width="665" alt="Frosty Sweet" title="Frosty Sweet" />
+
+                                <div align="center" >
+                                    @using (Html.BeginForm("SignUpFunction", "Home", FormMethod.Post, new { style = "align:center", enctype = "multipart/form-data" }))
+                                    { 
+                                       
+                                         // @Html.AntiForgeryToken()
+                                          //@Html.ValidationSummary(true)
+                                      
+
+                                         <label style="color:black">First Name </label>
+                                          @Html.TextBoxFor(model => model.firstname, new { style="color:black" , required="required" })
+                                         // @Html.EditorFor(model => model.firstname, new { style="color:black"})
+                                             // @Html.ValidationMessageFor(model => model.firstname)
+                                      
+                                        <br/>
+                                         <label style="color:black">Last Name </label>
+                                        // @Html.EditorFor(model => model.lastname)
+                                         //@Html.ValidationMessageFor(model => model.lastname)
+                                          @Html.TextBoxFor(model => model.lastname, new { style="color:black", required="reqired"})
+                                       
+                                        <br/>
+
+                                    <label style="color:black">Contact #1</label> 
+                                        // @Html.EditorFor(model => model.contactnumber1)
+                                         //@Html.ValidationMessageFor(model => model.contactnumber1)
+                                         @Html.TextBoxFor(model => model.contactnumber1, new { style="color:black", required="reqired"})
+                                        
+                                        <br/>
+
+                                    <label style="color:black">Conatct #2</label> 
+                                        
+                                        // @Html.EditorFor(model => model.contactnumber2)
+                                      
+                                         @Html.TextBoxFor(model => model.contactnumber2, new { style="color:black", required="reqired"})
+                                       
+                                        <br/>
+
+                                    <label style="color:black"> Address </label> 
+                                          // @Html.EditorFor(model => model.address)
+                                           @Html.TextBoxFor(model => model.address, new { style="color:black", required="reqired"})
+                                        <br/>
+
+                                   
+
+                                    <label style="color:black">Password</label>
+                                      @Html.TextBoxFor(model => model.password, new { style = "color:black", required = "reqired" , type="password" })
+                                         
+                                     
+                                       
+                                         
+                                     
+                                        <br/>
+                                        
+                                         <label style="color:black"> E-mail </label>  
+                                           @Html.TextBoxFor(model => model.email, new { style = "color:black", required = "reqired" })
+                                        <input type="button" id="b1" value="Check Avalibilty" />
+                                        <br/>
+                                        <div style="color:black" id="result"></div>
+                                          @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+               
+                var email = $('#email').val();
+        
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/home/CheckEmail?email=" + email, function (ans)
+                {
+                    $('#checking').hide();
+                    if (ans) {
+                        $('#result').text( "Email id is available");
+                        
+                    }
+                    else {
+                        $('#result').text("This Email id is already registered");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+                                        
+                                        <input type="file" style="color:black" name="image">
+                                       
+                                        <br/>
+                                        
+                           <div  align="justify">
+                                    <input type="submit" value="Sign Up" class="btn btn-block btn-success " onclick="status()" />
+                                </div>
+
+
+                                    }
+                                    <!-- Home/AddUser -->
+                                    
+                                </div>
+                               
+                               
+                                
+                            </div>
+                            <!-- end of footer-->
+                        </div>
+                        <!-- end inner page content box background -->
+                    </div>
+                    <!-- end of class content -->
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div><!--row div end-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-footer">
+
+
+
+                <a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+            </div>
+            <div>
+
+                <span>&copy;2011 <a href="#">Frost Sweets Gourmet Ice Cream All Rights Reserved</a> </span>
+                <!--add links-->
+            </div>
+        </div>
+    </nav>
+
+</body>
+</html>
+<script>
+    function status()
+    {
+        var myJsVariable = '@ViewBag.Message';
+        alert(myJsVariable);
+    }
+</script>

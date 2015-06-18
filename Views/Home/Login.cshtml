@@ -1,0 +1,123 @@
+﻿@model TermProject.Models.User
+
+@{
+    Layout = null;
+    // Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+   
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script src="bootstrap.js"></script>
+    
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Frosty Sweets</a>
+            </div>
+            </div>
+   </nav>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item"><img id="logo" src="~/Content/themes/base/images/logo.gif" width="265" height="325" alt=""></a>
+
+                    </div> <!--list group div end-->
+                 
+                </div><!--list col-mod-3 end-->
+                <div class="col-md-6">
+                    <!-- start of class content -->
+                    <div class="content">
+                        <!-- start inner page content box background -->
+                        <div class="header">
+                            <div class="footer">
+                                <div class="body">
+                                    <div class="news">
+                                        <img src="~/Content/themes/base/images/fruit-toppings.gif" height="200" width="665" alt="Frosty Sweet" title="Frosty Sweet" />
+
+                                        <div class="col-md-6" align="right" style="margin:50px">
+                                            @using (Html.BeginForm("LoginFunction", "Home", FormMethod.Post, new  { style="align:center"} ))
+                                             {
+                                                     @Html.LabelFor(@model => model.email, new { style = "color:black"})
+                                                     @Html.TextBoxFor(@model => model.email, new { style = "color:black" ,type = "email", required = "required" })
+                                                         <br />
+                                                     @Html.LabelFor(@model => model.password, new { style = "color:black" })
+                                                     @Html.TextBoxFor(@model => model.password, new { style = "color:black",type = "password", required = "required" })
+                                                 <br />
+                                                <div class="col-lg_3">
+                                                    <p id="demo"></p>
+                                                </div>
+                                                  <div class="col-lg-6 "align="right">
+                                                      <input type="submit" value="Log in" onclick="status()" class="btn btn-block btn-success">
+
+                                                  </div>
+    
+
+
+                                             }
+                                           
+                                        </div>
+                                    </div>
+                                    <!-- end of footer-->
+                                </div>
+                                <!-- end inner page content box background -->
+                            </div>
+                            <!-- end of class content -->
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!--row div end-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-footer">
+
+
+
+               
+                <a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+            </div>
+            <div>
+
+                <span>&copy;2011 <a href="#">Frost Sweets Gourmet Ice Cream All Rights Reserved</a> </span>
+                <!--add links-->
+            </div>
+        </div>
+    </nav>
+            
+</body>
+</html>
+<script>
+    function status()
+    {
+        
+        count++;
+
+        var myJsVariable = '@ViewBag.Message';
+        if (count == 1)
+        {
+            return;
+        }
+        alert(myJsVariable);
+
+    }
+</script>
